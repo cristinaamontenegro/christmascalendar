@@ -17,48 +17,27 @@ button{font:inherit;cursor:pointer}.btn{border:1px solid var(--line);background:
 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#8992a4;font-size:11px;padding:15px 3px}.modalbg{position:fixed;inset:0;background:#18213b66;display:none;align-items:center;justify-content:center;padding:18px;z-index:5}.modalbg.show{display:flex}.modal{width:min(410px,100%);background:white;border-radius:17px;padding:24px;box-shadow:0 25px 80px #101a3544}.modal h2{font-size:19px;margin:0 0 6px}.modal p{font-size:13px;color:var(--muted);margin:0 0 18px}.modal label{font-size:12px;font-weight:750;display:block;margin-bottom:7px}.modal input{width:100%;padding:12px;border:1px solid #dfe4ed;border-radius:10px;font:inherit}.modalActions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
 @media(max-width:700px){body{padding:17px 8px}.hero{padding:21px 17px}.heroRow{align-items:flex-start;flex-direction:column}.day{min-height:108px;padding:7px 4px}.weekday{font-size:8px;padding:11px 1px}.person{font-size:9px;padding:4px;gap:4px}.avatar{width:17px;height:17px;font-size:8px}.date{width:22px;height:22px;font-size:11px}.add{width:21px;height:21px}.person button{font-size:12px}}
 
-.days{display:block}
-.month-week{
- display:grid;
- grid-template-columns:repeat(5,minmax(0,1fr)) repeat(2,minmax(0,.62fr));
- grid-template-rows:38px repeat(var(--lanes,1),24px) minmax(82px,1fr);
- position:relative;
- min-height:145px;
- border-bottom:1px solid var(--line);
-}
-.month-week:last-child{border-bottom:0}
-.month-day{
- grid-row:1/-1;
- min-width:0;
- padding:11px 9px;
- border-right:1px solid var(--line);
- position:relative;
- z-index:0;
-}
-.month-day.weekend{background:#f0f1f4}
-.month-day.empty{background:#fafbfc}
-.month-day:nth-child(7){border-right:0}
-.month-dayhead{display:flex;justify-content:space-between;align-items:center;gap:3px}
-.month-dayhead .date{flex:none}
-.month-dayhead .add{flex:none}
-.month-bar{
- z-index:2;align-self:center;display:flex;align-items:center;gap:6px;
- min-width:0;height:21px;margin:0 2px;padding:2px 7px;
- border:1px solid currentColor;border-color:color-mix(in srgb,currentColor 24%,transparent);
- border-radius:6px;font-size:10px;font-weight:750;white-space:nowrap;
- overflow:hidden;text-overflow:ellipsis;box-shadow:inset 0 1px #ffffff66;
-}
-.month-bar .palm{flex:none}
-.month-bar .bar-name{overflow:hidden;text-overflow:ellipsis}
-.month-bar .remove-run{border:0;background:transparent;color:inherit;font-size:14px;padding:0 2px;opacity:.7;cursor:pointer}
-.month-bar.continues-left{border-top-left-radius:2px;border-bottom-left-radius:2px}
-.month-bar.continues-right{border-top-right-radius:2px;border-bottom-right-radius:2px}
-@media(max-width:700px){
- .month-day{padding:7px 4px}
- .month-dayhead .date{width:22px;height:22px;font-size:11px}
- .month-dayhead .add{width:21px;height:21px}
- .month-bar{font-size:8px;height:19px;padding:2px 3px;gap:3px}
-}
+.viewbar{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px;gap:12px}
+.view-label{font-size:12px;font-weight:750;color:#6f7a90;letter-spacing:.04em}
+.view-switch{display:inline-flex;padding:4px;background:#e9edf5;border-radius:11px;gap:3px}
+.view-btn{border:0;background:transparent;color:#68738a;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:750}
+.view-btn.active{background:#fff;color:#35436d;box-shadow:0 2px 6px #25345a14}
+.schedule-view{background:white;border:1px solid #edf0f5;border-radius:20px;overflow:hidden;box-shadow:0 15px 40px #25345a0d;max-width:980px;margin:0 auto}
+.schedule-week{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) repeat(2,minmax(0,.62fr));grid-auto-rows:auto;position:relative;border-bottom:1px solid var(--line);padding:0}
+.schedule-week:last-child{border-bottom:0}
+.schedule-week-title{display:none}
+.schedule-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) repeat(2,minmax(0,.62fr));grid-template-rows:48px repeat(var(--lanes,1),27px);gap:0;grid-column:1/-1;min-width:0;position:relative;padding-bottom:10px}
+.schedule-dayhead{grid-row:1;display:flex;align-items:center;justify-content:space-between;gap:3px;padding:11px 9px;border-right:1px solid var(--line);min-width:0;background:white;color:var(--ink)}
+.schedule-dayhead.weekend{background:#f0f1f4;color:var(--ink)}
+.schedule-dayhead.outside{background:#fafbfc;color:var(--muted)}
+.schedule-dayhead .weekday-short{display:none}
+.schedule-dayhead .day-number{width:27px;height:27px;border-radius:9px;display:grid;place-items:center;font-weight:800;font-size:13px;color:#4d5870;margin-left:0}
+.schedule-dayhead .add-schedule{width:25px;height:25px;border:0;border-radius:8px;background:#f1f3f9;color:#77829a;font-size:18px;line-height:1}
+.schedule-event{display:flex;align-items:center;min-width:0;height:22px;align-self:center;margin:0 5px;padding:2px 6px;border-radius:6px;font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1px solid color-mix(in srgb,currentColor 24%,transparent);box-shadow:inset 0 1px #ffffff66}
+.schedule-event .event-name{overflow:hidden;text-overflow:ellipsis}
+.schedule-event .event-mark{margin-right:5px;flex:none}
+.schedule-empty{padding:22px;text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:700px){.schedule-grid{grid-template-rows:42px repeat(var(--lanes,1),24px);padding-bottom:8px}.schedule-dayhead{padding:7px 4px}.schedule-dayhead .day-number{width:22px;height:22px;font-size:11px}.schedule-dayhead .add-schedule{width:21px;height:21px}.schedule-event{font-size:8px;height:19px;padding:2px 3px;margin:0 3px}}
 
 </style>
 </head>
@@ -66,7 +45,15 @@ button{font:inherit;cursor:pointer}.btn{border:1px solid var(--line);background:
 <main class="shell">
 <div class="top"><div class="brand"><span class="mark">✦</span> RP TEAM · PEOPLE PLANNER</div><div><button class="btn" id="clear">Clear calendar</button> <button class="btn primary" id="export">Export list ↓</button></div></div>
 <section class="hero"><div class="heroRow"><div><div class="eyebrow">Team availability</div><h1>RP Team Holidays</h1><p class="sub">A simple overview of who's away and when.</p></div><div class="month">DECEMBER 2026</div></div><div class="stats"><span>● <strong id="people">0</strong> people listed</span><span style="color:#269b78">● <strong id="entries">0</strong> holiday entries</span><span>＋ Click a date to add a team member</span></div></section>
-<section class="calendar"><div class="weekdays"><div class="weekday">Monday</div><div class="weekday">Tuesday</div><div class="weekday">Wednesday</div><div class="weekday">Thursday</div><div class="weekday">Friday</div><div class="weekday">Saturday</div><div class="weekday">Sunday</div></div><div class="days" id="days"></div></section>
+<div class="viewbar">
+  <div class="view-label">Calendar view</div>
+  <div class="view-switch" role="group" aria-label="Calendar view">
+    <button class="view-btn active" id="calendarViewBtn" type="button">Monthly</button>
+    <button class="view-btn" id="scheduleViewBtn" type="button">Schedule</button>
+  </div>
+</div>
+<section class="calendar" id="monthlyView"><div class="weekdays"><div class="weekday">Monday</div><div class="weekday">Tuesday</div><div class="weekday">Wednesday</div><div class="weekday">Thursday</div><div class="weekday">Friday</div><div class="weekday">Saturday</div><div class="weekday">Sunday</div></div><div class="days" id="days"></div></section>
+<section class="schedule-view" id="scheduleView" hidden aria-label="Team holidays schedule"></section>
 <div class="foot"><span>Each team member has their own colour · ＋ Add a name · × Remove an entry</span><span id="syncStatus">Connecting to shared calendar…</span></div>
 </main>
 <div class="modalbg" id="modal"><div class="modal"><h2>Add a team member</h2><p id="dateLabel"></p><label for="name">Team member name</label><input id="name" maxlength="50" placeholder="Enter a name…" autocomplete="off"><div class="modalActions"><button class="btn" id="cancel">Cancel</button><button class="btn primary" id="save">Add to calendar</button></div></div></div>
@@ -79,111 +66,151 @@ button{font:inherit;cursor:pointer}.btn{border:1px solid var(--line);background:
  let entries=[],chosen=null,busy=false;
  const $=id=>document.getElementById(id);
  const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
- const colourFor=name=>{let h=0;for(let i=0;i<name.length;i++)h=(h*31+name.charCodeAt(i))|0;const hue=Math.abs(h)%360;return{bg:`hsl(${hue} 72% 92%)`,fg:`hsl(${hue} 42% 32%)`}};
+ const TEAM_PALETTE=[
+  {bg:'#FADADD',fg:'#873B46'}, {bg:'#D7E9FF',fg:'#28527D'},
+  {bg:'#DDF2D1',fg:'#3A6532'}, {bg:'#FFE5C2',fg:'#87501B'},
+  {bg:'#E6DDF8',fg:'#59427F'}, {bg:'#CFF0EA',fg:'#24665C'},
+  {bg:'#F7D7EC',fg:'#853D6B'}, {bg:'#FFF0B8',fg:'#765B12'},
+  {bg:'#D7EAF0',fg:'#315A69'}, {bg:'#E8EBCB',fg:'#5C632B'},
+  {bg:'#F6D9C8',fg:'#8B4B2D'}, {bg:'#DAD9FA',fg:'#4D4B87'},
+  {bg:'#D0EEDC',fg:'#2F654B'}, {bg:'#F4D5D5',fg:'#883D3D'},
+  {bg:'#D6E2F5',fg:'#36577F'}, {bg:'#F3E0B9',fg:'#795824'},
+  {bg:'#D3EDE7',fg:'#28635A'}, {bg:'#EBD9EF',fg:'#704678'},
+  {bg:'#DCE5EC',fg:'#435B6C'}, {bg:'#F8E5A7',fg:'#735817'},
+  {bg:'#DCE8D8',fg:'#486342'}, {bg:'#F6DFE8',fg:'#81465B'},
+  {bg:'#D5E8E8',fg:'#315F62'}, {bg:'#E9E0D2',fg:'#6B5439'}
+ ];
+ const colourMap=new Map();
+ function refreshColourMap(){
+  const names=[...new Set(entries.map(e=>e.team_member.trim().toLowerCase()))].sort((a,b)=>a.localeCompare(b));
+  colourMap.clear();const used=new Set();
+  names.forEach(name=>{
+   let hash=0;for(let i=0;i<name.length;i++)hash=(hash*31+name.charCodeAt(i))>>>0;
+   const start=hash%TEAM_PALETTE.length;
+   for(let offset=0;offset<TEAM_PALETTE.length;offset++){
+    const index=(start+offset)%TEAM_PALETTE.length;
+    if(!used.has(index)){used.add(index);colourMap.set(name,TEAM_PALETTE[index]);return;}
+   }
+   colourMap.set(name,TEAM_PALETTE[start]);
+  });
+ }
+ const colourFor=name=>colourMap.get(String(name).trim().toLowerCase())||TEAM_PALETTE[0];
  function status(s,error=false){$('syncStatus').textContent=s;$('syncStatus').style.color=error?'#b42318':''}
  function close(){ $('modal').classList.remove('show');chosen=null }
  function openAdd(date){chosen=date;$('dateLabel').textContent=date.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});$('name').value='';$('modal').classList.add('show');setTimeout(()=>$('name').focus(),40)}
  async function load(){status('Syncing…');const{data,error}=await db.from(TABLE).select('id,holiday_date,team_member').order('holiday_date').order('team_member');if(error){status('Could not load calendar — check Supabase setup and RLS.',true);console.error(error);return}entries=data||[];draw();status('Shared calendar · live sync enabled')}
  function draw(){
+  refreshColourMap();
   const root=$('days');root.innerHTML='';
-  const first=new Date(2026,10,30),last=new Date(2027,0,7),all=[];
-  for(let d=new Date(first);d<=last;d.setDate(d.getDate()+1))all.push(new Date(d));
-  const weeks=[];
-  for(let i=0;i<all.length;i+=7)weeks.push(all.slice(i,i+7));
-  const names=[...new Set(entries.map(e=>e.team_member))].sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:'base'}));
-
-  weeks.forEach(week=>{
-   const weekRow=document.createElement('div');weekRow.className='month-week';
-   const segments=[];
-   names.forEach(name=>{
-    const personEntries=entries.filter(e=>e.team_member.toLowerCase()===name.toLowerCase());
-    const dates=[...new Set(personEntries.map(e=>e.holiday_date))].sort();
-    let run=[];
-    const flush=()=>{
-     if(!run.length)return;
-     const firstDate=new Date(run[0]+'T12:00:00');
-     const lastDate=new Date(run[run.length-1]+'T12:00:00');
-     const ws=week[0],we=week[week.length-1];
-     const clipStart=firstDate>ws?firstDate:ws;
-     const clipEnd=lastDate<we?lastDate:we;
-     if(clipStart<=clipEnd){
-      const startCol=week.findIndex(d=>dateKey(d)===dateKey(clipStart));
-      const endCol=week.findIndex(d=>dateKey(d)===dateKey(clipEnd));
-      if(startCol>=0&&endCol>=0)segments.push({
-       name,startCol,endCol,
-       ids:personEntries.filter(e=>e.holiday_date>=dateKey(clipStart)&&e.holiday_date<=dateKey(clipEnd)).map(e=>e.id),
-       continuesLeft:firstDate<ws,continuesRight:lastDate>we
-      });
-     }
-     run=[];
-    };
-    dates.forEach(dateStr=>{
-     const current=new Date(dateStr+'T12:00:00');
-     if(!run.length){run=[dateStr];return}
-     const previous=new Date(run[run.length-1]+'T12:00:00');
-     if((current-previous)/86400000===1)run.push(dateStr);
-     else{flush();run=[dateStr]}
-    });
-    flush();
-   });
-
-   // Assign overlapping periods to separate lanes, preserving alphabetical order.
-   segments.sort((a,b)=>a.name.localeCompare(b.name,undefined,{sensitivity:'base'})||a.startCol-b.startCol);
-   const lanes=[];
-   segments.forEach(seg=>{
-    let lane=0;
-    while(lanes[lane]&&lanes[lane].some(x=>!(seg.endCol<x.startCol||seg.startCol>x.endCol)))lane++;
-    if(!lanes[lane])lanes[lane]=[];
-    lanes[lane].push(seg);seg.lane=lane;
-   });
-   const laneCount=Math.max(lanes.length,1);
-   weekRow.style.setProperty('--lanes',laneCount);
-
-   // Each date keeps the exact Monthly cell style and position; only its entries are replaced by spanning bars.
-   week.forEach((date,col)=>{
-    const d=new Date(date),cell=document.createElement('div');
-    cell.className='month-day'+((d.getDay()===0||d.getDay()===6)?' weekend':'');
-    cell.style.gridColumn=String(col+1);
-    const head=document.createElement('div');head.className='month-dayhead';
-    const num=document.createElement('span');num.className='date';num.textContent=d.getDate();
-    const plus=document.createElement('button');plus.className='add';plus.textContent='+';plus.title='Add a team member';plus.onclick=()=>openAdd(d);
-    head.append(num,plus);cell.append(head);weekRow.append(cell);
-   });
-   for(let col=week.length;col<7;col++){
-    const blank=document.createElement('div');blank.className='month-day empty'+(col>=5?' weekend':'');
-    blank.style.gridColumn=String(col+1);weekRow.append(blank);
-   }
-
-   segments.forEach(seg=>{
-    const c=colourFor(seg.name.toLowerCase()),bar=document.createElement('div');
-    bar.className='month-bar'+(seg.continuesLeft?' continues-left':'')+(seg.continuesRight?' continues-right':'');
-    bar.style.gridColumn=`${seg.startCol+1}/${seg.endCol+2}`;
-    bar.style.gridRow=String(seg.lane+2);
-    bar.style.backgroundColor=c.bg;bar.style.color=c.fg;
-    bar.title=seg.name+' · '+(seg.endCol-seg.startCol+1)+' consecutive day(s)';
-    const palm=document.createElement('span');palm.className='palm';palm.textContent='🌴';
-    const label=document.createElement('span');label.className='bar-name';label.textContent=seg.name;
-    const remove=document.createElement('button');remove.className='remove-run';remove.textContent='×';remove.title='Remove this person from these days';
-    remove.onclick=()=>removeRun(seg.ids);
-    bar.append(palm,label,remove);weekRow.append(bar);
-   });
-   root.append(weekRow);
+  const first=new Date(2026,10,30),last=new Date(2027,0,7);
+  const dates=[];for(let d=new Date(first);d<=last;d.setDate(d.getDate()+1))dates.push(new Date(d));
+  dates.forEach((date,index)=>{
+   const cell=document.createElement('div');const weekend=index%7>=5;
+   cell.className='day'+(weekend?' weekend':'');
+   const head=document.createElement('div');head.className='dayhead';
+   const num=document.createElement('span');num.className='date';num.textContent=date.getDate();
+   const plus=document.createElement('button');plus.className='add';plus.textContent='+';plus.title='Add a team member';plus.setAttribute('aria-label','Add a team member on '+date.toDateString());plus.onclick=()=>openAdd(date);
+   head.append(num,plus);cell.append(head);
+   const k=dateKey(date);
+   entries.filter(e=>e.holiday_date===k)
+     .sort((a,b)=>a.team_member.localeCompare(b.team_member,undefined,{sensitivity:'base'}))
+     .forEach(e=>{
+       const c=colourFor(e.team_member.toLowerCase()),p=document.createElement('div');p.className='person';p.style.backgroundColor=c.bg;p.style.color=c.fg;
+       const av=document.createElement('span');av.className='avatar';av.textContent=e.team_member.trim().split(/\s+/).slice(0,2).map(x=>x[0]).join('').toUpperCase();
+       const label=document.createElement('span');label.className='pname';label.textContent=e.team_member;
+       const x=document.createElement('button');x.textContent='×';x.title='Remove '+e.team_member;x.setAttribute('aria-label','Remove '+e.team_member);x.onclick=()=>removeEntry(e.id);
+       p.append(av,label,x);cell.append(p);
+     });
+   root.append(cell);
   });
+  for(let i=0;i<3;i++){const b=document.createElement('div');b.className='day empty weekend';root.append(b);}
   $('people').textContent=new Set(entries.map(e=>e.team_member.toLowerCase())).size;
   $('entries').textContent=entries.length;
+  drawSchedule();
  }
- async function removeRun(ids){
-  if(busy||!ids.length)return;
-  if(!confirm('Remove this continuous holiday period for this person?'))return;
-  busy=true;status('Updating…');
-  const{error}=await db.from(TABLE).delete().in('id',ids);
-  busy=false;
-  if(error){status('Could not remove entry — check Supabase permissions.',true);console.error(error);return}
-  await load();
+ function drawSchedule(){
+  const root=$('scheduleView');root.innerHTML='';
+  const first=new Date(2026,10,30),last=new Date(2027,0,7);
+  const allDates=[];for(let d=new Date(first);d<=last;d.setDate(d.getDate()+1))allDates.push(new Date(d));
+  const weeks=[];
+  for(let i=0;i<allDates.length;i+=7)weeks.push(allDates.slice(i,i+7));
+  const names=[...new Set(entries.map(e=>e.team_member))].sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:'base'}));
+  if(!entries.length){const empty=document.createElement('div');empty.className='schedule-empty';empty.textContent='No team holidays have been added yet.';root.append(empty);return;}
+  weeks.forEach((week,weekIndex)=>{
+    const weekStart=week[0],weekEnd=week[6]||week[week.length-1];
+    const section=document.createElement('div');section.className='schedule-week';
+    const grid=document.createElement('div');grid.className='schedule-grid';
+    week.forEach((date,col)=>{
+      const head=document.createElement('div');head.className='schedule-dayhead'+(col>=5?' weekend':'');
+      if(date.getMonth()!==11)head.classList.add('outside');
+      const dn=document.createElement('span');dn.className='day-number';dn.textContent=date.getDate();
+      const plus=document.createElement('button');plus.className='add-schedule';plus.type='button';plus.textContent='+';plus.title='Add a team member';plus.onclick=()=>openAdd(date);
+      head.append(dn,plus);grid.append(head);
+    });
+    // Build continuous date ranges per person, then clip each range to this week.
+    const segments=[];
+    names.forEach(name=>{
+      const personDates=entries.filter(e=>e.team_member.toLowerCase()===name.toLowerCase())
+        .map(e=>e.holiday_date).sort();
+      const unique=[...new Set(personDates)];
+      let run=[];
+      const flush=()=>{
+        if(!run.length)return;
+        const runStart=new Date(run[0]+'T12:00:00'),runEnd=new Date(run[run.length-1]+'T12:00:00');
+        const clipStart=runStart>week[0]?runStart:week[0];
+        const clipEnd=runEnd<week[week.length-1]?runEnd:week[week.length-1];
+        if(clipStart<=clipEnd){
+          const startCol=week.findIndex(d=>dateKey(d)===dateKey(clipStart));
+          const endCol=week.findIndex(d=>dateKey(d)===dateKey(clipEnd));
+          if(startCol>=0&&endCol>=0)segments.push({name,startCol,endCol,startsHere:dateKey(runStart)===dateKey(clipStart),endsHere:dateKey(runEnd)===dateKey(clipEnd)});
+        }
+        run=[];
+      };
+      unique.forEach(dateStr=>{
+        const date=new Date(dateStr+'T12:00:00');
+        if(!run.length){run=[dateStr];return;}
+        const prev=new Date(run[run.length-1]+'T12:00:00');
+        const diff=(date-prev)/86400000;
+        if(diff===1)run.push(dateStr);else{flush();run=[dateStr];}
+      });
+      flush();
+    });
+    // Sort bars alphabetically, then place each in the first lane without a date overlap.
+    segments.sort((a,b)=>a.name.localeCompare(b.name,undefined,{sensitivity:'base'})||a.startCol-b.startCol);
+    const lanes=[];
+    segments.forEach(segment=>{
+      let lane=0;
+      while(lanes[lane]&&lanes[lane].some(s=>!(segment.endCol<s.startCol||segment.startCol>s.endCol)))lane++;
+      if(!lanes[lane])lanes[lane]=[];
+      lanes[lane].push(segment);
+      const c=colourFor(segment.name.toLowerCase());
+      const bar=document.createElement('div');bar.className='schedule-event';
+      bar.style.gridColumn=`${segment.startCol+1}/${segment.endCol+2}`;
+      bar.style.gridRow=String(lane+2);
+      bar.style.backgroundColor=c.bg;bar.style.color=c.fg;
+      if(segment.startCol>0)bar.style.borderTopLeftRadius='2px';
+      if(segment.endCol<6)bar.style.borderTopRightRadius='2px';
+      const mark=document.createElement('span');mark.className='event-mark';mark.textContent='🌴';
+      const label=document.createElement('span');label.className='event-name';
+      label.textContent=segment.name;
+      bar.title=segment.name+(segment.startsHere&&segment.endsHere?'': ' · continues across days');
+      bar.append(mark,label);grid.append(bar);
+    });
+    grid.style.setProperty('--lanes',Math.max(lanes.length,1));
+    section.append(grid);root.append(section);
+  });
+ }
+ function setView(view){
+  const monthly=view==='monthly';
+  $('monthlyView').hidden=!monthly;
+  $('scheduleView').hidden=monthly;
+  $('calendarViewBtn').classList.toggle('active',monthly);
+  $('scheduleViewBtn').classList.toggle('active',!monthly);
  }
  async function addEntry(){const name=$('name').value.trim();if(!name||!chosen||busy)return;busy=true;$('save').disabled=true;status('Saving…');const{error}=await db.from(TABLE).insert({holiday_date:dateKey(chosen),team_member:name});busy=false;$('save').disabled=false;if(error){status(error.code==='23505'?'This person is already listed on that date.':'Could not save — check Supabase permissions.',true);console.error(error);return}close();await load()}
  async function removeEntry(id){if(busy)return;busy=true;status('Updating…');const{error}=await db.from(TABLE).delete().eq('id',id);busy=false;if(error){status('Could not remove — check Supabase permissions.',true);console.error(error);return}await load()}
  async function clearCalendar(){if(!confirm('Remove every name from this shared calendar?'))return;busy=true;const{error}=await db.from(TABLE).delete().gte('holiday_date','2026-11-30').lte('holiday_date','2027-01-07');busy=false;if(error){status('Could not clear calendar.',true);console.error(error);return}await load()}
+ $('calendarViewBtn').onclick=()=>setView('monthly');$('scheduleViewBtn').onclick=()=>setView('schedule');setView('monthly');
  $('save').onclick=addEntry;$('cancel').onclick=close;$('name').onkeydown=e=>{if(e.key==='Enter')addEntry();if(e.key==='Escape')close()};$('modal').onclick=e=>{if(e.target===$('modal'))close()};$('clear').onclick=clearCalendar;
  $('export').onclick=()=>{const rows=[['Date','Team Member'],...entries.map(e=>[e.holiday_date,e.team_member])];const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a'),u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=u;a.download='RP_Team_Holidays_December_2026.csv';a.click();URL.revokeObjectURL(u)};
  db.channel('rp-team-holidays-live').on('postgres_changes',{event:'*',schema:'public',table:TABLE},load).subscribe();load();
